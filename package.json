@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Buddhika2003/Student-Expense-Tracker#readme",
   "dependencies": {
+    "body-parser": "^2.2.2",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "mongoose": "^9.6.0"
