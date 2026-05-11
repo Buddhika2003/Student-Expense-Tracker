@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.post("/", createExpense);
 router.get("/", getExpenses);
-router.put("//:id", updateExpense);
-router.delete("//:id", deleteExpense);
+router.put("/:id", updateExpense);
+router.delete("/:id", deleteExpense);
 
 router.get("/search", searchExpenses);
 router.get("/monthlytotals", getMonthlyTotals);
