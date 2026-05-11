@@ -3,9 +3,14 @@ import User from "../model/userModel.js";
 import jwt from "jsonwebtoken";
 
 const getLoggedUser = async (req) => {
+  if (!req.headers.authorization) {
+    throw new Error("No token provided");
+  }
+
   const token = req.headers.authorization.split(" ")[1];
   const decoded = jwt.verify(token, process.env.JWT_SECRET);
   const user = await User.findById(decoded.id);
+
   return user;
 };
 
