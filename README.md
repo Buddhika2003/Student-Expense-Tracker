@@ -1,4 +1,4 @@
-~~~ **Student Expense Tracker System** ~~~
+~~~ Student Expense Tracker System ~~~
 
 A full-stack MERN application for managing daily student expenses, monthly budgets, and expense reports with user authentication.
 
