@@ -43,3 +43,21 @@ export const deleteExpense = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+export const searchExpenses = async (req, res) => {
+  try {
+    const keyword = req.query.keyword || "";
+
+    const expenses = await Expense.find({
+      $or: [
+        { title: { $regex: keyword, $options: "i" } },
+        { category: { $regex: keyword, $options: "i" } }
+      ]
+    });
+
+    res.json(expenses);
+
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
