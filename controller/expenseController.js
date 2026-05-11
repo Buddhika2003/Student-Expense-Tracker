@@ -17,3 +17,18 @@ export const getExpenses = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+export const updateExpense = async (req, res) => {
+  try {
+    const updatedExpense = await Expense.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+
+    res.json(updatedExpense);
+
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
