@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("DB Connected"))
   .catch((err) => console.log(err));
 
-app.use("/api", expenseRoutes);
+app.use("/api/expenses", expenseRoutes);
 app.use("/api/users", userRoutes);
 
 app.get("/", (req, res) => {
