@@ -1,3 +1,4 @@
+import express from "express";
 import { createExpense } from "../controller/expenseController.js";
 
 const router = express.Router();
