@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #dbeafe, #f8fafc);
+  color: #1f2937;
+}
+
+.auth-box {
+  width: 360px;
+  margin: 70px auto 20px;
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.auth-box h1 {
+  color: #1e3a8a;
+  margin-bottom: 25px;
+}
+
+input {
+  width: 90%;
+  padding: 13px;
+  margin: 8px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  margin: 5px;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.switch-box {
+  text-align: center;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e3a8a;
+  color: white;
+  padding: 20px;
+  border-radius: 18px;
+  margin-bottom: 25px;
+}
+
+.logout {
+  background: #dc2626;
+}
+
+.logout:hover {
+  background: #b91c1c;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  margin: 20px 0;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.expense-item {
+  background: #f8fafc;
+  border-left: 6px solid #2563eb;
+  padding: 18px;
+  margin: 14px 0;
+  border-radius: 12px;
+}
+
+.expense-item h3 {
+  margin: 0;
+  color: #1e3a8a;
+}
+
+.delete-btn {
+  background: #ef4444;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+.message {
+  color: green;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
