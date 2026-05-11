@@ -5,6 +5,7 @@ import cors from "cors";
 
 import userRoutes from "./routes/userRoutes.js";
 import expenseRoutes from "./routes/expenseRoutes.js";
+import budgetRoutes from "./routes/budgetRoutes.js";
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
 app.use("/api/expenses", expenseRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/budgets", budgetRoutes);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Student Expense Tracker API");
