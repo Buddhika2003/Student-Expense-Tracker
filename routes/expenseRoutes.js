@@ -3,11 +3,12 @@ import {createExpense,getExpenses,updateExpense,deleteExpense,searchExpenses,get
 
 const router = express.Router();
 
-router.post("/expenses", createExpense);
-router.get("/expenses", getExpenses);
-router.put("/expenses/:id", updateExpense);
-router.delete("/expenses/:id", deleteExpense);
-router.get("/expenses/search", searchExpenses);
-router.get("/expenses/monthlytotals", getMonthlyTotals);
+router.post("/", createExpense);
+router.get("/", getExpenses);
+router.put("//:id", updateExpense);
+router.delete("//:id", deleteExpense);
+
+router.get("/search", searchExpenses);
+router.get("/monthlytotals", getMonthlyTotals);
 
 export default router;
