@@ -16,6 +16,9 @@ mongoose.connect(process.env.MONGODB_URI)
 
 app.use("/api", expenseRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the Student Expense Tracker API");
+});
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
