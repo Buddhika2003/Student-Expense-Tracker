@@ -61,3 +61,22 @@ export const searchExpenses = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+export const getMonthlyTotals = async (req, res) => {
+  try {
+    const totals = await Expense.aggregate([
+      {
+        $group: {
+            _id: { $month: "$date" },
+            totalAmount: { $sum: "$amount" }
+        }
+      },
+      { $sort: { _id: 1 } }
+    ]);
+
+    res.json(totals);
+
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
