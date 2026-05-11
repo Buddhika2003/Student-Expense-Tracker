@@ -1,19 +1,20 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import bodyParser from "body-parser";
 
-dotenv.config(); 
+import expenseRoutes from "./routes/expenseRoutes.js";
+
+dotenv.config();
 
 const app = express();
 
 app.use(express.json());
 
-
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("DB Connected"))
   .catch((err) => console.log(err));
 
+app.use("/api", expenseRoutes);
 
 const PORT = process.env.PORT || 5000;
 
