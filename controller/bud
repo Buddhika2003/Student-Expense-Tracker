@@ -1,0 +1,34 @@
+import Budget from "../model/budget.js";
+import Expense from "../model/expense.js";
+import User from "../model/userModel.js";
+import jwt from "jsonwebtoken";
+
+const getLoggedUser = async (req) => {
+  const token = req.headers.authorization.split(" ")[1];
+  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  const user = await User.findById(decoded.id);
+  return user;
+};
+
+export const setBudget = async (req, res) => {
+  try {
+    const user = await getLoggedUser(req);
+
+    const budget = await Budget.findOneAndUpdate(
+      {
+        user: user._id,
+        month: req.body.month,
+        year: req.body.year
+      },
+      {amount: req.body.amount},
+      {
+        new: true,
+        upsert: true
+      }
+    );
+
+    res.json(budget);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
