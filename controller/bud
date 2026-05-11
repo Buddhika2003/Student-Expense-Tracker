@@ -32,3 +32,43 @@ export const setBudget = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+export const getBudgetSummary = async (req, res) => {
+  try {
+    const user = await getLoggedUser(req);
+
+    const month = Number(req.query.month);
+    const year = Number(req.query.year);
+
+    const budget = await Budget.findOne({
+      user: user._id,
+      month,
+      year
+    });
+
+    const startDate = new Date(year, month - 1, 1);
+    const endDate = new Date(year, month, 1);
+
+    const expenses = await Expense.find({
+      user: user._id,
+      date: {
+        $gte: startDate,
+        $lt: endDate
+      }
+    });
+
+    let totalSpent = 0;
+
+    expenses.forEach((expense) => {
+      totalSpent += expense.amount;
+    });
+
+    res.json({
+      budgetAmount: budget ? budget.amount : 0,
+      totalSpent,
+      remaining: budget ? budget.amount - totalSpent : 0
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
