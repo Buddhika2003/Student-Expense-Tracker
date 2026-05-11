@@ -1,4 +1,6 @@
 import Expense from "../model/expense.js";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 export const createExpense = async (req, res) => {
   try {
