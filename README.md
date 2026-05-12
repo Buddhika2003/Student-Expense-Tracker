@@ -162,10 +162,22 @@ GET http://localhost:5000/api/expenses
 
 ---
 
-## 5. Delete Expense
+## 5. Monthly totals 
+
+```http
+GET http://localhost:5000/api/expenses/monthlytotals
+```
+
+<img width="1280" height="800" alt="Screenshot 2026-05-12 at 17 31 35" src="https://github.com/user-attachments/assets/74f2abfe-8e6b-4881-9623-d5924f9ae689" />
+
+
+---
+
+## 6. Delete Expense
 
 ```http
 DELETE http://localhost:5000/api/expenses/:id
 ```
 
 <img width="1280" height="800" alt="Delete Expense" src="https://github.com/user-attachments/assets/4622e6f5-ef28-43c1-b9d5-5b2387109738" />
+
