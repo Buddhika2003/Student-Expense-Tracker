@@ -57,6 +57,8 @@ Tools
     •MongoDB Compass
     •GitHub
 
+•Folder Structure
+
 student-expense-tracker
 │
 ├── backend
@@ -79,8 +81,22 @@ student-expense-tracker
 •Frontend runs on : http://localhost:5173
 
 •Process in postman
-        1. User registration - POST http://localhost:5000/users/register
+        1. User registration - POST http://localhost:5000/api/users/register
             <img width="1280" height="800" alt="Screenshot 2026-05-12 at 16 44 09" src="https://github.com/user-attachments/assets/3248ba88-ce34-441f-b8c5-814934d7f46c" />
+
+        2. User login - POST http://localhost:5000/api/users/login
+            <img width="1280" height="800" alt="Screenshot 2026-05-12 at 16 50 12" src="https://github.com/user-attachments/assets/037727e6-c292-4b4e-b373-40713bf1bbb6" />
+
+        3. Add expense - POST http://localhost:5000/api/expenses
+            <img width="1280" height="800" alt="Screenshot 2026-05-12 at 16 53 50" src="https://github.com/user-attachments/assets/5c64913f-ddec-4c7f-8ab3-7db3dc860c2a" />
+            
+        4. Get expenses - GET http://localhost:5000/api/expenses
+            <img width="1280" height="800" alt="Screenshot 2026-05-12 at 16 55 36" src="https://github.com/user-attachments/assets/154abb44-913a-4e0d-a644-9adcb803697c" />
+
+        5. Delete expenses - DELETE http://localhost:5000/api/expenses/:id
+            <img width="1280" height="800" alt="Screenshot 2026-05-12 at 16 58 56" src="https://github.com/user-attachments/assets/4622e6f5-ef28-43c1-b9d5-5b2387109738" />
+
+        
 
 
                 
