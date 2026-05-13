@@ -253,7 +253,73 @@ GET /api/budgets/summary?month=5&year=2026
 ```text
 Authorization: Bearer [TOKEN]
 ```
+---
 
+# How to Run the Project
+
+## Step 1 - Start MongoDB
+
+Make sure MongoDB is running on your system.
+
+Default MongoDB URL:
+
+```text
+mongodb://127.0.0.1:27017
+```
+
+---
+
+## Step 2 - Run Backend Server
+
+Open terminal and go to backend folder:
+
+```bash
+cd student-expense-tracker
+```
+
+Run backend server:
+
+```bash
+npm start
+```
+
+Backend will run on:
+
+```text
+http://localhost:5000
+```
+
+---
+
+## Step 3 - Run Frontend Application
+
+Open another terminal and go to frontend folder:
+
+```bash
+cd student-expense-frontend
+```
+
+Run React frontend:
+
+```bash
+npm run dev
+```
+
+Frontend will run on:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Step 4 - Open Application
+
+Open browser and go to:
+
+```text
+http://localhost:5173
+```
 
 ---
 
