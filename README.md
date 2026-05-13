@@ -120,6 +120,143 @@ http://localhost:5173
 
 ---
 
+# API Endpoints
+
+## User Routes
+
+### 1. Register User
+
+```http
+POST /api/users/register
+```
+
+---
+
+### 2. Login User
+
+```http
+POST /api/users/login
+```
+
+---
+
+## Expense Routes
+
+### 3. Add Expense
+
+```http
+POST /api/expenses
+```
+
+### Headers
+
+```text
+Authorization: Bearer [TOKEN]
+```
+
+---
+
+### 4. Get User Expenses
+
+```http
+GET /api/expenses
+```
+
+### Headers
+
+```text
+Authorization: Bearer [TOKEN]
+```
+
+---
+
+### 5. Update Expense
+
+```http
+PUT /api/expenses/:id
+```
+
+### Headers
+
+```text
+Authorization: Bearer [TOKEN]
+```
+
+---
+
+### 6. Delete Expense
+
+```http
+DELETE /api/expenses/:id
+```
+
+### Headers
+
+```text
+Authorization: Bearer [TOKEN]
+```
+
+---
+
+### 7. Search Expenses
+
+```http
+GET /api/expenses/search?keyword=Food
+```
+
+### Headers
+
+```text
+Authorization: Bearer [TOKEN]
+```
+
+---
+
+### 8. Monthly Expense Totals
+
+```http
+GET /api/expenses/monthlytotals
+```
+
+### Headers
+
+```text
+Authorization: Bearer [TOKEN]
+```
+
+---
+
+## Budget Routes
+
+### 9. Set Monthly Budget
+
+```http
+POST /api/budgets
+```
+
+### Headers
+
+```text
+Authorization: Bearer [TOKEN]
+```
+
+---
+
+### 10. Get Budget Summary
+
+```http
+GET /api/budgets/summary?month=5&year=2026
+```
+
+### Headers
+
+```text
+Authorization: Bearer [TOKEN]
+```
+
+
+---
+
 # Process in Postman
 
 ## 1. User Registration
