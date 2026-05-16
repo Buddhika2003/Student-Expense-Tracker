@@ -1,5 +1,6 @@
 import { useState } from "react";
 import API from "../api/api";
+import loginImage from "../assets/login-image.jpg";
 
 function Register({ setShowRegister }) {
   const [formData, setFormData] = useState({
@@ -37,43 +38,70 @@ function Register({ setShowRegister }) {
   };
 
   return (
-    <div className="auth-box">
-      <h1>Register</h1>
+    <div className="register-page">
+      <div className="register-left">
+        <div className="register-card">
+          <h1>Create Account</h1>
 
-      <form onSubmit={registerUser}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
+          <p className="register-subtitle">
+            Register to start tracking your expenses and monthly budgets.
+          </p>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
+          <form onSubmit={registerUser}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
 
-        <button type="submit">Register</button>
-      </form>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
 
-      <p className="message">{message}</p>
+            <button className="register-btn" type="submit">
+              Register
+            </button>
+          </form>
 
-      <button onClick={() => setShowRegister(false)}>Go to Login</button>
+          <p className="message">{message}</p>
+
+          <button
+            className="back-login-btn"
+            onClick={() => setShowRegister(false)}
+          >
+            Go to Login
+          </button>
+        </div>
+      </div>
+
+      <div className="register-right">
+        <img src={loginImage} alt="Expense Tracker" />
+
+        <div className="image-overlay">
+          <h2>Start Smart Saving</h2>
+          <p>
+            Create your account, track daily expenses, and manage your student
+            budget easily.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

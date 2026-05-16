@@ -21,11 +21,15 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="login-wrapper">
       <Login setIsLoggedIn={setIsLoggedIn} />
+
       <div className="switch-box">
         <p>Don&apos;t have an account?</p>
-        <button onClick={() => setShowRegister(true)}>Create Account</button>
+
+        <button onClick={() => setShowRegister(true)}>
+          Create Account
+        </button>
       </div>
     </div>
   );
