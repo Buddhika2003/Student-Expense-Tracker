@@ -1,6 +1,29 @@
 import { useEffect, useState } from "react";
 import API from "../api/api";
 
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend
+} from "chart.js";
+
+import { Line } from "react-chartjs-2";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend
+);
+
 function Dashboard({ setIsLoggedIn }) {
   const [expenses, setExpenses] = useState([]);
   const [monthlyTotals, setMonthlyTotals] = useState([]);
@@ -19,21 +42,14 @@ function Dashboard({ setIsLoggedIn }) {
   };
 
   const getExpenses = async () => {
-    try {
-      const res = await API.get("/expenses");
-      setExpenses(res.data);
-    } catch (err) {
-      console.log(err);
-    }
+    const res = await API.get("/expenses");
+    setExpenses(res.data);
   };
 
   const getMonthlyTotals = async () => {
-    try {
-      const res = await API.get("/expenses/reports/monthly");
-      setMonthlyTotals(res.data);
-    } catch (err) {
-      console.log(err);
-    }
+    const res = await API.get("/expenses/monthlytotals");
+    console.log("Monthly totals:", res.data);
+    setMonthlyTotals(res.data);
   };
 
   useEffect(() => {
@@ -51,42 +67,30 @@ function Dashboard({ setIsLoggedIn }) {
   const addExpense = async (e) => {
     e.preventDefault();
 
-    try {
-      await API.post("/expenses", formData);
+    await API.post("/expenses", formData);
 
-      setFormData({
-        title: "",
-        amount: "",
-        category: "",
-        date: ""
-      });
+    setFormData({
+      title: "",
+      amount: "",
+      category: "",
+      date: ""
+    });
 
-      getExpenses();
-      getMonthlyTotals();
-    } catch (err) {
-      console.log(err);
-    }
+    getExpenses();
+    getMonthlyTotals();
   };
 
   const deleteExpense = async (id) => {
-    try {
-      await API.delete(`/expenses/${id}`);
-      getExpenses();
-      getMonthlyTotals();
-    } catch (err) {
-      console.log(err);
-    }
+    await API.delete(`/expenses/${id}`);
+    getExpenses();
+    getMonthlyTotals();
   };
 
   const searchExpenses = async (e) => {
     e.preventDefault();
 
-    try {
-      const res = await API.get(`/expenses/search?keyword=${keyword}`);
-      setExpenses(res.data);
-    } catch (err) {
-      console.log(err);
-    }
+    const res = await API.get(`/expenses/search?keyword=${keyword}`);
+    setExpenses(res.data);
   };
 
   const clearSearch = () => {
@@ -102,6 +106,62 @@ function Dashboard({ setIsLoggedIn }) {
     ];
 
     return months[monthNumber - 1];
+  };
+
+  const chartData = {
+    labels: monthlyTotals.map((item) => monthName(item._id)),
+    datasets: [
+      {
+        label: "Monthly Expenses",
+        data: monthlyTotals.map((item) => item.totalAmount),
+        borderColor: "#f0b90b",
+        backgroundColor: "rgba(240, 185, 11, 0.18)",
+        pointBackgroundColor: "#f0b90b",
+        pointBorderColor: "#ffffff",
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        borderWidth: 3,
+        tension: 0.35,
+        fill: true
+      }
+    ]
+  };
+
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: {
+          color: "#e5e7eb"
+        }
+      },
+      tooltip: {
+        backgroundColor: "#111827",
+        titleColor: "#f0b90b",
+        bodyColor: "#ffffff",
+        borderColor: "#f0b90b",
+        borderWidth: 1
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: "#9ca3af"
+        },
+        grid: {
+          color: "rgba(255, 255, 255, 0.08)"
+        }
+      },
+      y: {
+        ticks: {
+          color: "#9ca3af"
+        },
+        grid: {
+          color: "rgba(255, 255, 255, 0.08)"
+        }
+      }
+    }
   };
 
   return (
@@ -151,8 +211,6 @@ function Dashboard({ setIsLoggedIn }) {
             />
           </div>
 
-          <br />
-
           <button type="submit">Add Expense</button>
         </form>
       </div>
@@ -171,6 +229,18 @@ function Dashboard({ setIsLoggedIn }) {
           <button type="submit">Search</button>
           <button type="button" onClick={clearSearch}>Clear</button>
         </form>
+      </div>
+
+      <div className="card chart-card">
+        <h2>Expense Live Chart</h2>
+
+        {monthlyTotals.length === 0 ? (
+          <p>No chart data available</p>
+        ) : (
+          <div className="trading-chart-box">
+            <Line data={chartData} options={chartOptions} />
+          </div>
+        )}
       </div>
 
       <div className="card">

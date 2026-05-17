@@ -433,3 +433,293 @@ body {
     width: 100%;
   }
 }
+.chart-card {
+  min-height: 420px;
+}
+
+.chart-card {
+  background: linear-gradient(135deg, #0b0e11, #111827);
+  border: 1px solid rgba(240, 185, 11, 0.25);
+}
+
+.chart-card h2 {
+  color: #f0b90b;
+}
+
+.trading-chart-box {
+  height: 360px;
+  width: 100%;
+}
+
+/* DARK DASHBOARD */
+
+.container {
+  min-height: 100vh;
+  padding: 35px;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 30%),
+    radial-gradient(circle at top right, rgba(139, 92, 246, 0.15), transparent 30%),
+    linear-gradient(135deg, #020617, #0b1120, #111827);
+}
+
+.header {
+  max-width: 1250px;
+  margin: 0 auto 30px;
+  padding: 28px 35px;
+  border-radius: 28px;
+  background: rgba(17, 24, 39, 0.82);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: white;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.logout {
+  background: linear-gradient(135deg, #ef4444, #be123c);
+  color: white;
+  border: none;
+  padding: 13px 24px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.card {
+  max-width: 1250px;
+  margin: 22px auto;
+  padding: 28px;
+  border-radius: 28px;
+
+  background: rgba(17, 24, 39, 0.82);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 22px;
+  color: #f8fafc;
+  font-size: 25px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.card input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: white;
+
+  font-size: 15px;
+}
+
+.card input::placeholder {
+  color: #94a3b8;
+}
+
+.card input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+.card button {
+  background: linear-gradient(135deg, #38bdf8, #6366f1, #8b5cf6);
+
+  color: white;
+
+  border: none;
+
+  padding: 13px 24px;
+
+  border-radius: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.card button:hover,
+.logout:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 25px rgba(99, 102, 241, 0.35);
+}
+
+.expense-item {
+  padding: 20px;
+
+  margin-top: 16px;
+
+  border-radius: 22px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.95),
+    rgba(15, 23, 42, 0.95)
+  );
+
+  border-left: 6px solid #6366f1;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.expense-item h3 {
+  margin: 0 0 10px;
+  color: #f8fafc;
+  font-size: 22px;
+}
+
+.expense-item p {
+  margin: 6px 0;
+  color: #cbd5e1;
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+}
+
+.chart-card {
+  background: linear-gradient(135deg, #0b0e11, #111827);
+  border: 1px solid rgba(240, 185, 11, 0.2);
+}
+
+.chart-card h2 {
+  color: #f0b90b;
+}
+
+.trading-chart-box {
+  height: 380px;
+  width: 100%;
+}
+
+@media (max-width: 950px) {
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .card button {
+    width: 100%;
+  }
+
+  .container {
+    padding: 18px;
+  }
+}
+
+/* DASHBOARD BACKGROUND IMAGE + GLASS BLUR */
+
+.container {
+  min-height: 100vh;
+  padding: 35px;
+  background-image:
+    linear-gradient(rgba(2, 6, 23, 0.65), rgba(2, 6, 23, 0.85)),
+    url("./assets/dashboard-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.header,
+.card {
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+}
+
+.card h2,
+.header h1 {
+  color: white;
+}
+
+.expense-item {
+  background: rgba(30, 41, 59, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-left: 6px solid #38bdf8;
+}
+
+.expense-item h3 {
+  color: #f8fafc;
+}
+
+.expense-item p {
+  color: #cbd5e1;
+}
+
+.card input {
+  background: rgba(255, 255, 255, 0.13);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.card input::placeholder {
+  color: #cbd5e1;
+}
+
+/* HOVER POPUP EFFECT */
+
+.card,
+.expense-item,
+.header {
+  transition: all 0.3s ease;
+}
+
+.card:hover,
+.expense-item:hover {
+  transform: translateY(-8px) scale(1.01);
+
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    0 0 20px rgba(56, 189, 248, 0.18);
+
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.header:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 30px 65px rgba(0, 0, 0, 0.5),
+    0 0 24px rgba(139, 92, 246, 0.22);
+}
